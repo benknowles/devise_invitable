@@ -283,7 +283,7 @@ module Devise
           end
 
           invitable = find_or_initialize_with_errors(invite_key_array, attributes_hash)
-          invitable.assign_attributes(attributes)
+          invitable.update_attributes(attributes)
           invitable.invited_by = invited_by
           unless invitable.password || invitable.encrypted_password.present?
             invitable.password = random_password
