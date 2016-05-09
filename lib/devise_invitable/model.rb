@@ -320,7 +320,7 @@ module Devise
           original_token = attributes.delete(:invitation_token)
           invitable = find_by_invitation_token(original_token, false)
           if invitable.errors.empty?
-            invitable.assign_attributes(attributes)
+            invitable.update_attributes(attributes)
             invitable.accept_invitation!
           end
           invitable
